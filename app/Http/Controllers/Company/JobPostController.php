@@ -113,8 +113,11 @@ class JobPostController extends Controller
      */
     public function edit(Post $post)
     {
-        // dd($post);
-        Gate::allows('edit-post', $post);
+
+        // dd(auth()->guard('company')->user());
+        // dd($post->company);
+        // Gate::allows('edit-post', $post);
+        // $this->authorize('update', $post);
 
    
 

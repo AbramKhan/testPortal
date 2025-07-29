@@ -27,14 +27,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        
+        Gate::policy(Post::class, PostPolicy::class);
 
 
-       Gate::define('edit-post', function (Company $company, Post $post) {
+    //    Gate::define('edit-post', function (Company $company, Post $post) {
            
-            return $post->company->is(Auth::guard('company')->user());
+    //         return $post->company->is(Auth::guard('company')->user());
+    //         // return $post->company->is($company);
 
-        });
+    //     });
 
     }
 }

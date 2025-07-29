@@ -37,9 +37,9 @@
                                                     <td>{{ $post->address }}</td>
                                                     <td class="pt_10 pb_10">
                                                         <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal_1"><i class="fas fa-eye"></i></a>
-                                                        @can('edit-post', $post)
+                                                        {{-- @can('edit-post', $post) --}}
                                                             <a href="{{ route('post.edit', $post) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                                        @endcan
+                                                        {{-- @endcan --}}
                                                         
                                                         <a href="" class="btn btn-danger" onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i></a>
                                                     </td>

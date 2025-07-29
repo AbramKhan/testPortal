@@ -2,38 +2,71 @@
 
 namespace App\Policies;
 
-use App\Constants\Role;
-use App\Models\Admin;
 use App\Models\Company;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
+use Illuminate\Support\Facades\Auth;
 
 class PostPolicy
 {
+    /**
+     * Determine whether the user can view any models.
+     */
+    public function viewAny(User $user): bool
+    {
 
-    //  public function create(Company $company, Post $post)
-    // {
-    //    dd($company->id, $post->author_id, $company->id === $post->author_id);
-    //          return $company->role === Role::COMPANY;
+        return true;
+    }
+
+    /**
+     * Determine whether the user can view the model.
+     */
+    public function view(User $user, Post $post): bool
+    {
+       return auth()->guard('company')->id() == $post->author_id;
+    }
+
+    /**
+     * Determine whether the user can create models.
+     */
+    public function create(User $user): bool
+    {
+        return false;
+    }
+
+    /**
+     * Determine whether the user can update the model.
+     */
+    public function update(Company $company , Post $post): bool
+    {
+    //   dd($company);
+    //   dd( $post->author_id);
         
-    // }
+        return auth()->guard('company')->id() == $post->author_id;
+    }
 
-    //   public function updateByAdmin(Admin $admin, Post $post): bool
-    // {
-    //     // A company user can only update their own posts
-    //     if ($admin->isAdmin()) {
-    //         return true;
-    //     }
+    /**
+     * Determine whether the user can delete the model.
+     */
+    public function delete(User $user, Post $post): bool
+    {
+        return false;
+    }
 
-    //     //  if ($company->isCompany() && auth()->guard('company')->id() === $post->author_id) {
-    //     //     return true;
-    //     // }
+    /**
+     * Determine whether the user can restore the model.
+     */
+    public function restore(User $user, Post $post): bool
+    {
+        return false;
+    }
 
-    //     // Otherwise, deny access
-    //     return false;
-    // }
-   
-
-   
+    /**
+     * Determine whether the user can permanently delete the model.
+     */
+    public function forceDelete(User $user, Post $post): bool
+    {
+        return false;
+    }
 }
