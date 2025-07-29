@@ -17,7 +17,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="{{ route('job-posts.store') }}" method="post" >
+                                    <form action="{{ route('post.store') }}" method="post" >
                                         @csrf
 
                                         <div class="row">

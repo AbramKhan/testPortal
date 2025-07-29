@@ -20,9 +20,10 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
+                            
                                 {{-- @can('update',  $jobPost) --}}
                                     <div class="card-body">
-                                    <form action="{{ route('job-posts.store') }}" method="post" >
+                                    <form action="{{ route('post.store') }}" method="post" >
                                         @csrf
                                     
 
@@ -30,13 +31,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group mb-3">
                                                     <label>Title</label>
-                                                    <input type="text"  name="title" value="{{ old('title', $jobPost->title) }}" class="form-control" >
+                                                    <input type="text"  name="title" value="{{ old('title', $post->title) }}" class="form-control" >
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group mb-3">
                                                     <label>salary</label>
-                                                    <input type="text" class="form-control" name="salary" value="{{ old('salary', $jobPost->salary) }}" >
+                                                    <input type="text" class="form-control" name="salary" value="{{ old('salary', $post->salary) }}" >
                                                 </div>
                                             </div>
                                         </div>

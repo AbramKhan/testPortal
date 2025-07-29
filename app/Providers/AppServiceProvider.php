@@ -30,10 +30,9 @@ class AppServiceProvider extends ServiceProvider
         
 
 
-        Gate::define('edit-post', function (Company $company, Post $post) {
-            // dd($jobPost->author_id == $company->id);
-            // return $jobPost->author_id == $company->id;
-            return $post->company()->is(Auth::guard('company')->user());
+       Gate::define('edit-post', function (Company $company, Post $post) {
+           
+            return $post->company->is(Auth::guard('company')->user());
 
         });
 

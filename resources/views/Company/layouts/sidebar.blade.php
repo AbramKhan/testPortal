@@ -32,11 +32,11 @@
                 <a href="#" class="nav-link has-dropdown"><i
                         class="fas fa-hand-point-right"></i><span>Jobs</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ Route::is('job-posts.create') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('job-posts.create') }}"><i class="fas fa-hand-point-right"></i>
+                    <li class="{{ Route::is('post.create') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('post.create') }}"><i class="fas fa-hand-point-right"></i>
                             <span>job create</span></a></li>
-                     <li class="{{ Route::is('job-posts.create') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('job-posts.index') }}"><i class="fas fa-hand-point-right"></i>
+                     <li class="{{ Route::is('post.index') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('post.index') }}"><i class="fas fa-hand-point-right"></i>
                             <span>jobs list</span></a></li>
                     {{-- <li class="{{ Route::is('admin_profile') ? 'active' : '' }}"><a class="nav-link" href="{{ route('category.create') }}"><i class="fas fa-hand-point-right"></i> <span>create</span></a></li> --}}
                 </ul>

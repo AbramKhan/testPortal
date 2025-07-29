@@ -25,8 +25,8 @@ class JobPostController extends Controller
     {
         $locations = Location::all();
         $categories = Category::all();
-        $jobposts = Post::all();
-        return view('company.jobpost.index', compact('jobposts', 'locations', 'categories'));
+        $posts = Post::all();
+        return view('company.jobpost.index', compact('posts', 'locations', 'categories'));
 
     }
 
@@ -111,33 +111,17 @@ class JobPostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $jobPost)
+    public function edit(Post $post)
     {
-       
-        // Gate::define('edit-post', function (Company $company, Post $jobPost) {
-        //     // dd($jobPost->author_id == $company->id);
-        //     // return $jobPost->author_id == $company->id;
-        //     return $jobPost->company()->is(Auth::guard('company')->user());
+        // dd($post);
+        Gate::allows('edit-post', $post);
 
-        // });
-
-        Gate::authorize('edit-post', $jobPost);
-
-        // if( Gate::denies('edit-post', $jobPost)){
-        //     abort(403);
-        // }
-
-        // if($jobPost->company()->isNot(auth()->guard('company')->user())) {
-
-        //     abort(403);
-        // }
-
-        // dd(auth()->guard('company')->check());
+   
 
         $locations = Location::all();
         $categories = Category::all();
 
-        return view('company.jobpost.edit', compact('jobPost', 'locations', 'categories'));
+        return view('company.jobpost.edit', compact('post', 'locations', 'categories'));
     }
 
     /**

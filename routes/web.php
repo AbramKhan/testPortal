@@ -58,5 +58,5 @@ Route::prefix('company')->group(function () {
 
 Route::middleware('company')->group(function () {
     Route::get('com-dashboard',[CompanyAuthController::class,'companydashboard'])->name('company_dashboard');
-      Route::resource('/job-posts', JobPostController::class);
+      Route::resource('/post', JobPostController::class);
 });
